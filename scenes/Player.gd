@@ -1,23 +1,22 @@
 extends CharacterBody2D
 
-@export var speed = 300
-@export var gravity = 100
-@export var jump_force = 1200
+var speed = 300.0
+var jump_speed = -400.0
 
-# Movement :3
+# Get the gravity from the project settings so you can sync with rigid body nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
 func _physics_process(delta):
-	if !is_on_floor():
-		velocity.y = gravity
-		if velocity.y > 1000:
-			velocity.y = 500
-	
-	if Input.is_action_just_pressed("jump"):
-		velocity.y = -jump_force
-	
-	var horizontal_direction = Input.get_axis("move_left", "move_right")
-	
-	velocity.x = speed * horizontal_direction
-	
+	# Add the gravity.
+	velocity.y += gravity * delta
+
+	# Handle Jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_speed
+
+	# Get the input direction.
+	var direction = Input.get_axis("move_left", "move_right")
+	velocity.x = direction * speed
+
 	move_and_slide()
-	
-	print(velocity)
