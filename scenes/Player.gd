@@ -8,6 +8,7 @@ var max_charge = 30000
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var total = 0
+var limit = -140
 var pt = 0
 
 func _physics_process(delta):
@@ -19,7 +20,9 @@ func _physics_process(delta):
 		# This aint exactly the best since it don't workey so find a way to mesure the time :3
 		pt = Time.get_unix_time_from_system()
 	if Input.is_action_just_released("jump") and is_on_floor():
-		var jump_boost = (pt - Time.get_unix_time_from_system()) * 50
+		var jump_boost = (pt - Time.get_unix_time_from_system()) * 100
+		if jump_boost < limit:
+			jump_boost = limit
 		print(jump_boost)
 		velocity.y = jump_speed + jump_boost
 
