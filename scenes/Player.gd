@@ -44,5 +44,7 @@ func handle_jump():
 			jump_boost = limit
 		print(jump_boost)
 		velocity.y = jump_speed + jump_boost
-	if velocity.y >= 0 and !is_on_floor():
-		_animation_player.play("falling")
+	if velocity.y <= 0:
+		_animation_player.play("jump")
+	# if velocity.y >= 0 and !is_on_floor():
+	#	_animation_player.play("falling")
