@@ -10,11 +10,14 @@ size = Vector2(15.5, 22)
 script = ExtResource("1_0p422")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(502, 296)
+position = Vector2(-0.5, -3)
 texture = ExtResource("1_imc7c")
 hframes = 6
 vframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(502, 301)
+position = Vector2(-0.5, 2)
 shape = SubResource("RectangleShape2D_jmrg2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
