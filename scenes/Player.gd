@@ -13,13 +13,22 @@ var limit = -140
 var pt = 0
 var health = 100
 
+var is_attacking = false
+
 func _physics_process(delta):
 	velocity.y += gravity * delta
 
 	handle_movement()
 	handle_jump()
+	handle_attacking()
 
 	move_and_slide()
+
+func handle_attacking():
+	if is_attacking == false && Input.is_action_pressed("attack"):
+		is_attacking = true
+		_animation_player.play("attack")
+		is_attacking = false
 
 func handle_movement():
 	var direction = 0

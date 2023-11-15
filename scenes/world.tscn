@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c0wnnmvt75p70"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2g2fa2wwn4" path="res://scenes/Player.tscn" id="1_5ax4r"]
-[ext_resource type="PackedScene" uid="uid://clp54t73vm82m" path="res://scenes/hud.tscn" id="2_y0wia"]
+[ext_resource type="PackedScene" uid="uid://f7g6hakpq8s6" path="res://scenes/hud.tscn" id="2_y0wia"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_6c0we"]
 size = Vector2(1000, 40)
@@ -12,7 +12,7 @@ size = Vector2(999, 40)
 [node name="World" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_5ax4r")]
-position = Vector2(140, 72)
+position = Vector2(77, 368)
 
 [node name="Platform" type="StaticBody2D" parent="."]
 
