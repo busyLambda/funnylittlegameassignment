@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var total = 0
 var limit = -140
 var pt = 0
+var health = 100
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
