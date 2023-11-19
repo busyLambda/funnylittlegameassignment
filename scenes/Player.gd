@@ -25,7 +25,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func handle_attacking():
-	if Input.is_action_pressed("attack"):
+	if Input.is_action_just_pressed("attack"):
 		is_attacking = true
 		_animation_player.play("attack")	
 		
