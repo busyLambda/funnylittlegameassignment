@@ -7,7 +7,7 @@ var max_charge = 30000
 @onready var _animation_player = $AnimatedSprite2D
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+	
 var total = 0
 var limit = -140
 var pt = 0
@@ -61,7 +61,6 @@ func handle_jump():
 		_animation_player.play("jump")
 	if velocity.y >= 0 and !is_on_floor() and !is_attacking:
 		_animation_player.play("falling")
-
 
 func _on_animated_sprite_2d_animation_finished():
 	if _animation_player.animation == "attack":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dmf2g2fa2wwn4"]
+[gd_scene load_steps=40 format=3 uid="uid://dmf2g2fa2wwn4"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_0p422"]
 [ext_resource type="Texture2D" uid="uid://dx664ugu6oeaq" path="res://assets/character/Attacks.png" id="2_edfvj"]
@@ -123,6 +123,14 @@ region = Rect2(0, 192, 128, 64)
 atlas = ExtResource("3_xshei")
 region = Rect2(128, 192, 128, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi5hg"]
+atlas = ExtResource("2_edfvj")
+region = Rect2(896, 192, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2s1g"]
+atlas = ExtResource("2_edfvj")
+region = Rect2(768, 192, 128, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_qjl53"]
 animations = [{
 "frames": [{
@@ -236,6 +244,17 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gi5hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2s1g")
+}],
+"loop": true,
+"name": &"thrust",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmrg2"]
@@ -246,7 +265,7 @@ script = ExtResource("1_0p422")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qjl53")
-animation = &"attack"
+animation = &"thrust"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
@@ -254,5 +273,8 @@ shape = SubResource("RectangleShape2D_jmrg2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
+
+[node name="AttackShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-1, 17, -2, 32, 14, 31, 28, 24, 33, 14, 33, 4, 27, -5, 16, -9, -3, -11, -2, -5)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
