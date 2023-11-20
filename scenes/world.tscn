@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0wnnmvt75p70"]
+[gd_scene load_steps=6 format=3 uid="uid://c0wnnmvt75p70"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2g2fa2wwn4" path="res://scenes/Player.tscn" id="1_5ax4r"]
 [ext_resource type="PackedScene" uid="uid://f7g6hakpq8s6" path="res://scenes/hud.tscn" id="2_y0wia"]
+[ext_resource type="PackedScene" uid="uid://bkqu34xc76jqe" path="res://scenes/Enemy.tscn" id="3_p7iuu"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_6c0we"]
 size = Vector2(1000, 40)
@@ -27,3 +28,6 @@ shape = SubResource("RectangleShape2D_wgp3v")
 [node name="HUD" parent="." instance=ExtResource("2_y0wia")]
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="Enemy" parent="." instance=ExtResource("3_p7iuu")]
+position = Vector2(531, 380)
