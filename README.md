@@ -1,2 +1,3 @@
 # Funny little game assignment
-- Read the WIKI
+- Read the wiki [here](https://github.com/busyLambda/funnylittlegameassignment/wiki)
+
