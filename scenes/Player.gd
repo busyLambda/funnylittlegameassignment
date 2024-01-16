@@ -9,9 +9,9 @@ var max_charge = 30000
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	
 var total = 0
-var limit = -140
-var pt = 0
 var health = 100
+var jumps_left = 2
+var double_jump_enabled = true
 
 var is_attacking = false
 
@@ -46,22 +46,21 @@ func handle_movement():
 			_animation_player.play("idle")
 
 	velocity.x = direction * speed
-
+	
 func handle_jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		pt = Time.get_unix_time_from_system()
-	if Input.is_action_just_released("jump") and is_on_floor():
-		var jump_boost = (pt - Time.get_unix_time_from_system()) * 100
-		if jump_boost < limit:
-			jump_boost = limit
-		print(jump_boost)
-		velocity.y = jump_speed + jump_boost
-		print(_animation_player.animation)
+	if is_on_floor():
+		jumps_left = 2
+		
+	if Input.is_action_just_pressed("jump") and jumps_left != 0:
+		jumps_left -= 1
+		
+		velocity.y = jump_speed
+		
 	if velocity.y <= 0 and !is_attacking:
 		_animation_player.play("jump")
 	if velocity.y >= 0 and !is_on_floor() and !is_attacking:
 		_animation_player.play("falling")
-
+	
 func _on_animated_sprite_2d_animation_finished():
 	if _animation_player.animation == "attack":
 		is_attacking = false
