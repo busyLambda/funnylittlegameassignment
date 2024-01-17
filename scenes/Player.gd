@@ -3,6 +3,8 @@ extends CharacterBody2D
 var speed = 300.0
 var jump_speed = -400.0
 var max_charge = 30000
+var acceleration = 10.0
+var deceleration = 5.0
 
 @onready var _animation_player = $AnimatedSprite2D
 
@@ -18,7 +20,7 @@ var is_attacking = false
 func _physics_process(delta):
 	velocity.y += gravity * delta
 
-	handle_movement()
+	handle_movement(delta)
 	handle_jump()
 	handle_attacking()
 
@@ -29,15 +31,15 @@ func handle_attacking():
 		is_attacking = true
 		_animation_player.play("attack")	
 		
-func handle_movement():
-	var direction = 0
+func handle_movement(delta):
+	var direction = 0.0
 	if Input.is_action_pressed("move_left"):
-		direction -= 1
+		direction -= 1.0
 		if !is_attacking:
 			_animation_player.play("run")
 		_animation_player.flip_h = true  # Invert the sprite when moving left
 	elif Input.is_action_pressed("move_right"):
-		direction += 1
+		direction += 1.0
 		if !is_attacking:
 			_animation_player.play("run")
 		_animation_player.flip_h = false  # Do not invert the sprite when moving right
@@ -45,7 +47,10 @@ func handle_movement():
 		if !is_attacking:
 			_animation_player.play("idle")
 
-	velocity.x = direction * speed
+	if direction != 0.0:
+		velocity.x = lerp(velocity.x, direction * speed, acceleration * delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, deceleration * delta)
 	
 func handle_jump():
 	if is_on_floor():
@@ -59,7 +64,7 @@ func handle_jump():
 	if velocity.y <= 0 and !is_attacking:
 		_animation_player.play("jump")
 	if velocity.y >= 0 and !is_on_floor() and !is_attacking:
-		_animation_player.play("falling")
+		_animation_player.play("jump")
 	
 func _on_animated_sprite_2d_animation_finished():
 	if _animation_player.animation == "attack":
