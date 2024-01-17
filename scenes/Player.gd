@@ -4,7 +4,7 @@ var speed = 300.0
 var jump_speed = -400.0
 var max_charge = 30000
 var acceleration = 10.0
-var deceleration = 5.0
+var deceleration = 5
 
 @onready var _animation_player = $AnimatedSprite2D
 
