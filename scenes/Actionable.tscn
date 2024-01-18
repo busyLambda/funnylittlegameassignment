@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cbvbrkos3ulu5"]
+
+[node name="Actionable" type="Area2D"]
+collision_layer = 17

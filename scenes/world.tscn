@@ -1,9 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0wnnmvt75p70"]
+[gd_scene load_steps=11 format=3 uid="uid://c0wnnmvt75p70"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2g2fa2wwn4" path="res://scenes/Player.tscn" id="1_5ax4r"]
 [ext_resource type="PackedScene" uid="uid://f7g6hakpq8s6" path="res://scenes/hud.tscn" id="2_y0wia"]
 [ext_resource type="PackedScene" uid="uid://bkqu34xc76jqe" path="res://scenes/Enemy.tscn" id="3_p7iuu"]
 [ext_resource type="Texture2D" uid="uid://blvleib1vaa4g" path="res://assets/tileset/main_lev_buildA.png" id="4_ur3hm"]
+[ext_resource type="PackedScene" uid="uid://cbvbrkos3ulu5" path="res://scenes/Actionable.tscn" id="4_vjc4f"]
+[ext_resource type="Script" path="res://scenes/Actionable.gd" id="5_cadsd"]
+[ext_resource type="Resource" uid="uid://b8ppxi6jx53kn" path="res://dialogues/dialogue.dialogue" id="6_bxejl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c42sj"]
+size = Vector2(17, 31)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oerel"]
 texture = ExtResource("4_ur3hm")
@@ -4355,6 +4361,14 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("3_p7iuu")]
 position = Vector2(531, 380)
+
+[node name="Actionable" parent="Enemy" instance=ExtResource("4_vjc4f")]
+script = ExtResource("5_cadsd")
+dialogue_resource = ExtResource("6_bxejl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Actionable"]
+position = Vector2(-1.5, -0.5)
+shape = SubResource("RectangleShape2D_c42sj")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_8ydby")
