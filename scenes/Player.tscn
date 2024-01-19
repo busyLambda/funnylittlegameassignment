@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dmf2g2fa2wwn4"]
+[gd_scene load_steps=35 format=3 uid="uid://dmf2g2fa2wwn4"]
 
 [ext_resource type="Script" path="res://scenes/Player.gd" id="1_0p422"]
 [ext_resource type="Texture2D" uid="uid://e2ltjju28vo8" path="res://assets/character/Idle.png" id="2_efx0b"]
@@ -221,8 +221,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pg4uu"]
 height = 50.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mplsg"]
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_0p422")
 
@@ -238,15 +236,5 @@ shape = SubResource("CapsuleShape2D_pg4uu")
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
-
-[node name="Direction" type="Marker2D" parent="."]
-
-[node name="ActionableFinder" type="Area2D" parent="Direction"]
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder"]
-position = Vector2(11, 4)
-shape = SubResource("CircleShape2D_mplsg")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
