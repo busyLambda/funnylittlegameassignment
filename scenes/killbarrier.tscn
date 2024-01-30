@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqi6s3wgeog83"]
+[gd_scene load_steps=3 format=3 uid="uid://bqi6s3wgeog83"]
+
+[ext_resource type="Script" path="res://scenes/killbarrier.gd" id="1_y7vlt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2nbyo"]
-size = Vector2(1170.5, 172)
+size = Vector2(4909, 172)
 
 [node name="Area2D" type="Area2D"]
+script = ExtResource("1_y7vlt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(575.25, 570)
+position = Vector2(356.5, 570)
 shape = SubResource("RectangleShape2D_2nbyo")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
