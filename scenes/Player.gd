@@ -54,3 +54,7 @@ func handle_jump():
 		_animation_player.play("jump")
 	if velocity.y >= 0 and !is_on_floor():
 		_animation_player.play("jump")
+
+
+func _on_area_2d_body_entered(body):
+	get_tree().reload_current_scene()
