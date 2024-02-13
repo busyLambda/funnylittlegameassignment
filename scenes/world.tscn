@@ -1,9 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0wnnmvt75p70"]
+[gd_scene load_steps=16 format=3 uid="uid://c0wnnmvt75p70"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2g2fa2wwn4" path="res://scenes/Player.tscn" id="1_5ax4r"]
 [ext_resource type="PackedScene" uid="uid://bkqu34xc76jqe" path="res://scenes/Enemy.tscn" id="3_p7iuu"]
 [ext_resource type="Texture2D" uid="uid://blvleib1vaa4g" path="res://assets/tileset/main_lev_buildA.png" id="4_ur3hm"]
 [ext_resource type="PackedScene" uid="uid://bqi6s3wgeog83" path="res://scenes/killbarrier.tscn" id="5_4owfe"]
+[ext_resource type="Texture2D" uid="uid://bis2ihhc4tcya" path="res://assets/Parallax Cave/1.png" id="5_ne0ga"]
+[ext_resource type="Texture2D" uid="uid://beqaqqxdpts1p" path="res://assets/Parallax Cave/2.png" id="6_euwi1"]
+[ext_resource type="Texture2D" uid="uid://dc0j1e8dpr77l" path="res://assets/Parallax Cave/3fx.png" id="7_dfa7a"]
+[ext_resource type="Texture2D" uid="uid://c0kntlit3clok" path="res://assets/Parallax Cave/4.png" id="8_wy0mp"]
+[ext_resource type="Texture2D" uid="uid://ilce1q85ukgg" path="res://assets/Parallax Cave/5.png" id="9_cn5uq"]
+[ext_resource type="Texture2D" uid="uid://d4gxy6k8sxkxp" path="res://assets/Parallax Cave/6fx.png" id="10_lmauh"]
+[ext_resource type="Texture2D" uid="uid://dp7lq4uy3f2fl" path="res://assets/Parallax Cave/7.png" id="11_d7ace"]
+[ext_resource type="Texture2D" uid="uid://b1avtkx1dh35c" path="res://assets/Parallax Cave/8fx.png" id="12_fbcev"]
+[ext_resource type="Texture2D" uid="uid://ddlqmaaxfuo2v" path="res://assets/Parallax Cave/9.png" id="13_qtcv4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oerel"]
 texture = ExtResource("4_ur3hm")
@@ -4660,6 +4669,7 @@ sources/1 = SubResource("TileSetAtlasSource_oerel")
 [node name="World" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -1495.0
 offset_top = -2776.0
 offset_right = 4581.0
@@ -4667,7 +4677,7 @@ offset_bottom = 1731.0
 color = Color(0.572549, 0.207843, 0.160784, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_5ax4r")]
-position = Vector2(1311, -560)
+position = Vector2(62, 346)
 
 [node name="Enemy" parent="." instance=ExtResource("3_p7iuu")]
 position = Vector2(531, 380)
@@ -4681,9 +4691,53 @@ layer_0/tile_data = PackedInt32Array(1572867, 3932161, 32, 1638403, 3932161, 33,
 position = Vector2(23, 309)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+scroll_base_scale = Vector2(0.1, 0.1)
+scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_ne0ga")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("6_euwi1")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("7_dfa7a")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("8_wy0mp")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource("9_cn5uq")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+texture = ExtResource("10_lmauh")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+texture = ExtResource("11_d7ace")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+texture = ExtResource("12_fbcev")
+
+[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
+texture = ExtResource("13_qtcv4")
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
