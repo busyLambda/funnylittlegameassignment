@@ -1,18 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0wnnmvt75p70"]
+[gd_scene load_steps=12 format=3 uid="uid://c0wnnmvt75p70"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2g2fa2wwn4" path="res://scenes/Player.tscn" id="1_5ax4r"]
 [ext_resource type="PackedScene" uid="uid://bkqu34xc76jqe" path="res://scenes/Enemy.tscn" id="3_p7iuu"]
 [ext_resource type="Texture2D" uid="uid://blvleib1vaa4g" path="res://assets/tileset/main_lev_buildA.png" id="4_ur3hm"]
 [ext_resource type="PackedScene" uid="uid://bqi6s3wgeog83" path="res://scenes/killbarrier.tscn" id="5_4owfe"]
-[ext_resource type="Texture2D" uid="uid://bis2ihhc4tcya" path="res://assets/Parallax Cave/1.png" id="5_ne0ga"]
-[ext_resource type="Texture2D" uid="uid://beqaqqxdpts1p" path="res://assets/Parallax Cave/2.png" id="6_euwi1"]
-[ext_resource type="Texture2D" uid="uid://dc0j1e8dpr77l" path="res://assets/Parallax Cave/3fx.png" id="7_dfa7a"]
-[ext_resource type="Texture2D" uid="uid://c0kntlit3clok" path="res://assets/Parallax Cave/4.png" id="8_wy0mp"]
-[ext_resource type="Texture2D" uid="uid://ilce1q85ukgg" path="res://assets/Parallax Cave/5.png" id="9_cn5uq"]
-[ext_resource type="Texture2D" uid="uid://d4gxy6k8sxkxp" path="res://assets/Parallax Cave/6fx.png" id="10_lmauh"]
-[ext_resource type="Texture2D" uid="uid://dp7lq4uy3f2fl" path="res://assets/Parallax Cave/7.png" id="11_d7ace"]
-[ext_resource type="Texture2D" uid="uid://b1avtkx1dh35c" path="res://assets/Parallax Cave/8fx.png" id="12_fbcev"]
-[ext_resource type="Texture2D" uid="uid://ddlqmaaxfuo2v" path="res://assets/Parallax Cave/9.png" id="13_qtcv4"]
+[ext_resource type="Texture2D" uid="uid://bofqug3xh0mnf" path="res://assets/BasedParallax/parallax-space-backgound.png" id="5_7fjqr"]
+[ext_resource type="Texture2D" uid="uid://blumro76lgxg0" path="res://assets/BasedParallax/parallax-space-big-planet.png" id="6_vp1jk"]
+[ext_resource type="Texture2D" uid="uid://bt3x0gtk6dn1o" path="res://assets/BasedParallax/parallax-space-far-planets.png" id="7_mpgwa"]
+[ext_resource type="Texture2D" uid="uid://dpulkrkj32rn1" path="res://assets/BasedParallax/parallax-space-ring-planet.png" id="8_aevkv"]
+[ext_resource type="Texture2D" uid="uid://q7xxayymawn8" path="res://assets/BasedParallax/parallax-space-stars.png" id="9_3c6ks"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oerel"]
 texture = ExtResource("4_ur3hm")
@@ -4698,46 +4694,45 @@ scroll_ignore_camera_zoom = true
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("5_ne0ga")
+position = Vector2(708.493, -519.5)
+scale = Vector2(13.4621, 15.2563)
+texture = ExtResource("5_7fjqr")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource("6_euwi1")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
-texture = ExtResource("7_dfa7a")
+position = Vector2(2216, -514)
+rotation = -0.837758
+scale = Vector2(5.93159, 6.69172)
+texture = ExtResource("6_vp1jk")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
-texture = ExtResource("8_wy0mp")
+position = Vector2(648, -469)
+scale = Vector2(10.215, 11.6588)
+texture = ExtResource("7_mpgwa")
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
-texture = ExtResource("9_cn5uq")
-
-[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
-texture = ExtResource("10_lmauh")
-
-[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
-texture = ExtResource("11_d7ace")
+position = Vector2(-477, -165)
+rotation = 0.837758
+scale = Vector2(7.88441, 8.86977)
+texture = ExtResource("8_aevkv")
 
 [node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
-texture = ExtResource("12_fbcev")
+position = Vector2(874, -629)
+scale = Vector2(3.35286, 4.1728)
+texture = ExtResource("9_3c6ks")
 
-[node name="ParallaxLayer9" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground"]
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer9"]
-texture = ExtResource("13_qtcv4")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Stars"]
+position = Vector2(571.497, 88.706)
+scale = Vector2(6.37866, 7.33382)
+texture = ExtResource("9_3c6ks")
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
