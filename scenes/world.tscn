@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0wnnmvt75p70"]
+[gd_scene load_steps=13 format=3 uid="uid://c0wnnmvt75p70"]
 
 [ext_resource type="PackedScene" uid="uid://dmf2g2fa2wwn4" path="res://scenes/Player.tscn" id="1_5ax4r"]
 [ext_resource type="PackedScene" uid="uid://bkqu34xc76jqe" path="res://scenes/Enemy.tscn" id="3_p7iuu"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bt3x0gtk6dn1o" path="res://assets/BasedParallax/parallax-space-far-planets.png" id="7_mpgwa"]
 [ext_resource type="Texture2D" uid="uid://dpulkrkj32rn1" path="res://assets/BasedParallax/parallax-space-ring-planet.png" id="8_aevkv"]
 [ext_resource type="Texture2D" uid="uid://q7xxayymawn8" path="res://assets/BasedParallax/parallax-space-stars.png" id="9_3c6ks"]
+[ext_resource type="PackedScene" uid="uid://cxlhtm7cchg4o" path="res://scenes/win_cond.tscn" id="10_qjdvc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oerel"]
 texture = ExtResource("4_ur3hm")
@@ -4792,5 +4793,8 @@ texture = ExtResource("9_3c6ks")
 position = Vector2(571.497, 88.706)
 scale = Vector2(6.37866, 7.33382)
 texture = ExtResource("9_3c6ks")
+
+[node name="WinCond" parent="." instance=ExtResource("10_qjdvc")]
+position = Vector2(472, -2253)
 
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
