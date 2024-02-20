@@ -4735,4 +4735,62 @@ position = Vector2(571.497, 88.706)
 scale = Vector2(6.37866, 7.33382)
 texture = ExtResource("9_3c6ks")
 
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
+offset = Vector2(-1500, -2400)
+transform = Transform2D(1, 0, 0, 1, -1500, -2400)
+follow_viewport_enabled = true
+scroll_base_scale = Vector2(0.1, 0.1)
+scroll_ignore_camera_zoom = true
+
+[node name="pbg" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/pbg"]
+position = Vector2(4348, -511)
+scale = Vector2(13.4621, 15.2563)
+texture = ExtResource("5_7fjqr")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
+position = Vector2(708.493, -519.5)
+scale = Vector2(13.4621, 15.2563)
+texture = ExtResource("5_7fjqr")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer2"]
+position = Vector2(2279, 555)
+rotation = -0.837758
+scale = Vector2(5.93159, 6.69172)
+texture = ExtResource("6_vp1jk")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer4"]
+position = Vector2(2492, -345)
+scale = Vector2(10.215, 11.6588)
+texture = ExtResource("7_mpgwa")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer5"]
+position = Vector2(1011, 54)
+rotation = 0.837758
+scale = Vector2(7.88441, 8.86977)
+texture = ExtResource("8_aevkv")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer8"]
+position = Vector2(874, -629)
+scale = Vector2(3.35286, 4.1728)
+texture = ExtResource("9_3c6ks")
+
+[node name="Stars" type="ParallaxLayer" parent="ParallaxBackground2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground2/Stars"]
+position = Vector2(571.497, 88.706)
+scale = Vector2(6.37866, 7.33382)
+texture = ExtResource("9_3c6ks")
+
 [connection signal="body_entered" from="Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
