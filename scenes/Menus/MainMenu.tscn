@@ -22,10 +22,10 @@ script = ExtResource("1_4iagu")
 [node name="TextureRect" type="TextureRect" parent="."]
 show_behind_parent = true
 layout_mode = 2
-offset_left = -1464.0
-offset_top = -1004.0
-offset_right = 1051.0
-offset_bottom = 847.0
+offset_left = -1399.0
+offset_top = -1037.0
+offset_right = 1116.0
+offset_bottom = 814.0
 texture = ExtResource("5_wvrct")
 stretch_mode = 5
 
